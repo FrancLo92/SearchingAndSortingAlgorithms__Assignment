@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author HP Mini
  */
-public class Course {
+public class Course implements Comparable<Course> {
     public int CourseID;
     private String CourseName;
     private double Cost;
@@ -71,6 +71,11 @@ public class Course {
     @Override
     public String toString() {
         return "Course{" + "CourseID=" + CourseID + ", CourseName=" + CourseName + ", Cost=" + Cost + '}';
+    }
+
+    @Override
+    public int compareTo(Course o) {
+        return this.CourseID - o.CourseID;
     }
     
     

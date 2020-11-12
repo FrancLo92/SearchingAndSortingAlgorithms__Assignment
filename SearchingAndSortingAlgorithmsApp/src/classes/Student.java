@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author HP Mini
  */
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student> {
     public int StudentID;
     private String Program;
     private Date DateRegistered;
@@ -84,6 +84,11 @@ public class Student extends Person {
 
     public void setDateRegistered(Date DateRegistered) {
         this.DateRegistered = DateRegistered;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return this.StudentID - o.StudentID;
     }
     
 }

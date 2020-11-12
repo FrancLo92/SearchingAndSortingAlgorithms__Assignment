@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author HP Mini
  */
-public class Enrollment {   
+public class Enrollment implements Comparable<Enrollment> {   
     
     public int EnrollmentID;
     private Date DateEnrolled;
@@ -48,14 +48,10 @@ public class Enrollment {
         return true;
     }
     
-    //all args constructor
-    public Enrollment(int enrollmentID, Date dateEnrolled, String grade, String semester){
-        this(enrollmentID, dateEnrolled,grade, semester,null);  
-    }
     
     // no args constructor
     public Enrollment(){
-        this(0, null, null, null);  
+        this(0, new Date(), "", "", new Course(0,"",0));  
     }
     
 
@@ -103,6 +99,11 @@ public class Enrollment {
 
     public void setSemester(String Semester) {
         this.Semester = Semester;
+    }
+
+    @Override
+    public int compareTo(Enrollment o) {
+        return this.EnrollmentID - o.EnrollmentID;
     }
     
 }
